@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.skilldistillery.jets.entities.CargoJet;
@@ -37,16 +36,16 @@ public class AirField {
 
 //				Jet p = new Jet(jetModel, jetSpeed, jetRange, jetPrice);
 				if (jetType.equalsIgnoreCase("Cargo")) {
-					Jet cargo = new CargoJet(jetModel, jetSpeed, jetRange, jetPrice);
+					Jet cargo = new CargoJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(cargo);
 					
 				} else if (jetType.equalsIgnoreCase("Fighter")) {
 					
-					Jet fighter = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice);
+					Jet fighter = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(fighter);
 					
 				}else if (jetType.equalsIgnoreCase("Passenger")) {
-					Jet passenger = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice);
+					Jet passenger = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(passenger);
 			}
 				
@@ -57,7 +56,38 @@ public class AirField {
 	}
 	public void listJets() {
 		for (int i = 0; i < jets.size(); i++) {
-			System.out.println(jets.get(i));
+			seperatorT();
+			System.out.println("|   "+jets.get(i)+ "   |");
+			seperatorB();
 		}
+	}
+		
+		public void jetsFlying() {
+			for (int i = 0; i < jets.size(); i++) {
+				seperatorT();
+				int speed =  jets.get(i).getSpeed();
+				int range = jets.get(i).getRange();
+				int time = range/speed;
+				System.out.println("   \n~~~~NNYYYOOOOOOMMMMMM~~~\n");
+				plane();
+				System.out.println(jets.get(i).getModel()+" is flying! At " + speed + "MPH"+ " for the distance of "+ range +"miles, in "+time +" hours.\n"+"This plane costs $" + jets.get(i).getPrice());
+				seperatorB();
+				
+			}
 		}
+	private void seperatorT() {
+		System.out.println("======================================================================");
+	}
+	private void seperatorB() {
+		System.out.println("======================================================================\n\n");
+	}
+	private void plane() {
+		System.out.println("	     ,-.\n"
+				         + "   _,.      /  /\n"
+				         + "  ; \\____,-==-._  \n"
+				         + "  //_    `----' {+>\n"
+				         + "  `  `'--/  /-'`\n"
+				         + "        /  /\n"
+				         + "        `='");
+	}
 	}

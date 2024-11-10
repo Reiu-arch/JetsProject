@@ -30,6 +30,8 @@ public class JetsApplication {
 					airField.listJets();
 					break;
 				case 2:
+					System.out.println("You have chosen for the planes to fly, here they go!");
+					airField.jetsFlying();
 					
 					break;
 				case 3:
@@ -70,6 +72,7 @@ public class JetsApplication {
 	}
 
 	private void displayUserMenu() {
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.println("********************************************************");
 		System.out.println("********* Welcome In, What Would you like to Do? *******");
 		System.out.println("********************************************************");

@@ -6,8 +6,11 @@ public class CargoJet extends Jet {
 		super();
 	}
 
-	public CargoJet(String model, int speed, int range, double price) {
-		super(model, speed, range, price);
+	public CargoJet(String model, int speed, int range, double price, String jetType) {
+		super(model, speed, range, price, jetType);
+		// TODO Auto-generated constructor stub
 	}
+
+	
 
 }
