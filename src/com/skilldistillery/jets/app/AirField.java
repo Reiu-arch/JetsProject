@@ -1,12 +1,63 @@
 package com.skilldistillery.jets.app;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import com.skilldistillery.jets.entities.CargoJet;
+import com.skilldistillery.jets.entities.FighterJet;
 import com.skilldistillery.jets.entities.Jet;
+import com.skilldistillery.jets.entities.PassengerJet;
 
 public class AirField {
-	private List<Jet> fleet = new ArrayList<>();
-	//no other fields
-	
-}
+	private List<Jet> jets = new ArrayList<>();
+	// no other fields
+
+	public AirField() {
+		loadJetsFromFile("Jets.txt");
+	}
+
+	private void loadJetsFromFile(String fileName) {
+		// FIXME - buffer reader template goes here
+		
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+
+				String[] jetData = line.split(",");
+				
+				String jetType = jetData[0];
+				String jetModel = jetData[1];
+				int jetSpeed = Integer.parseInt(jetData[2]);
+				int jetRange = Integer.parseInt(jetData[3]);
+				double jetPrice = Double.parseDouble(jetData[4]);
+
+//				Jet p = new Jet(jetModel, jetSpeed, jetRange, jetPrice);
+				if (jetType.equalsIgnoreCase("Cargo")) {
+					Jet cargo = new CargoJet(jetModel, jetSpeed, jetRange, jetPrice);
+					jets.add(cargo);
+					
+				} else if (jetType.equalsIgnoreCase("Fighter")) {
+					
+					Jet fighter = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice);
+					jets.add(fighter);
+					
+				}else if (jetType.equalsIgnoreCase("Passenger")) {
+					Jet passenger = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice);
+					jets.add(passenger);
+			}
+				
+			}	
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	}
+	public void listJets() {
+		for (int i = 0; i < jets.size(); i++) {
+			System.out.println(jets.get(i));
+		}
+		}
+	}

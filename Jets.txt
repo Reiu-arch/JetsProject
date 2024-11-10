@@ -1,5 +1,5 @@
 Cargo,"C-130",400,2000,12000000.0
 Cargo,"Chinook",250,1500,3000000000.0
-Passenger,"Boeing 767",300,200,50000000.0
-Fighter,"F-22 Raptor",700,7000000000.0
-Fighter,"Pigeon with C-4",97,50.0
+Passenger,"Boeing",767,3000,50000000.0
+Fighter,"F-22 Raptor",700,2000,7000000000.0
+Fighter,"Pigeon with C-4",97,35,50.0
