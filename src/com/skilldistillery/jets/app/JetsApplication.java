@@ -46,6 +46,7 @@ public class JetsApplication {
 					airField.loadCargo();
 					break;
 				case 6:
+					airField.dogFight();
 					
 					break;
 				case 7:
