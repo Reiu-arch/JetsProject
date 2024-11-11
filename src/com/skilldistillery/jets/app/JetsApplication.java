@@ -35,7 +35,8 @@ public class JetsApplication {
 					
 					break;
 				case 3:
-					
+					System.out.println("Lets see which plane is the fastest!!!");
+					airField.fastestJet();
 					break;
 				case 4:
 					

@@ -75,6 +75,19 @@ public class AirField {
 				
 			}
 		}
+		
+		public void fastestJet() {
+			Jet zoomiestJet = null;
+			for (int i = 0; i < jets.size(); i++) {
+				if (zoomiestJet == null) {
+					zoomiestJet = jets.get(i);
+				} else if (jets.get(i).getSpeed() > zoomiestJet.getSpeed()) {
+					zoomiestJet = jets.get(i);
+				}
+			}
+			System.out.println(zoomiestJet);
+		}
+		
 	private void seperatorT() {
 		System.out.println("======================================================================");
 	}
