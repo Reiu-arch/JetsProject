@@ -107,22 +107,29 @@ public class AirField {
 		for (Jet jet : jets) {
 			if (jet instanceof CargoJet) {
 				@SuppressWarnings("unused")
-				//unsure of why this prints out and says unused still. Still works???
+				// unsure of why this prints out and says unused still. Still works???
 				Jet cargoJets = ((CargoJet) jet).loadingCargo();
-				
+
 			}
 		}
 	}
-	
+
 	public void dogFight() {
 		for (Jet jet : jets) {
 			if (jet instanceof FighterJet) {
 				@SuppressWarnings("unused")
-				//unsure of why this prints out and says unused still. Still works???
+				// unsure of why this prints out and says unused still. Still works???
 				Jet cargoJets = ((FighterJet) jet).fight();
 			}
 		}
 	}
+
+	public void addNewJet(String jetType, String model, int speed, int range, double price) {
+		Jet addJet = null;
+		switch (jetType) {
+		}
+	}
+
 	private void seperatorT() {
 		System.out.println("======================================================================");
 	}
