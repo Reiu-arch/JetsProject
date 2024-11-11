@@ -68,7 +68,17 @@ public class JetsApplication {
 					
 					break;
 				case 8:
-					
+						airField.listJets();
+						System.out.println("\nWhich airplane would you like to remove from the hanger?");
+						try {
+						int deletion = sc.nextInt();
+						sc.nextLine();
+						airField.removeJet(deletion);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.err.println(e);
+						System.err.println("Please choose a number correlating to the plane you want to remove");
+					}
 					break;
 				case 9:
 					System.out.println("Thank you for coming!!!");

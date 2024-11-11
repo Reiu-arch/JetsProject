@@ -153,6 +153,11 @@ public class AirField {
 
 		}
 	}
+	public void removeJet(int delete) {
+		System.out.println(jets.get(delete).getModel()+ " has been removed from the hanger.");
+		jets.remove(delete);
+		
+	}
 
 	private void seperatorT() {
 		System.out.println("======================================================================");
