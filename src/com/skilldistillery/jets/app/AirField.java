@@ -21,13 +21,13 @@ public class AirField {
 
 	private void loadJetsFromFile(String fileName) {
 		// FIXME - buffer reader template goes here
-		
+
 		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
 
 				String[] jetData = line.split(",");
-				
+
 				String jetType = jetData[0];
 				String jetModel = jetData[1];
 				int jetSpeed = Integer.parseInt(jetData[2]);
@@ -38,82 +38,90 @@ public class AirField {
 				if (jetType.equalsIgnoreCase("Cargo")) {
 					Jet cargo = new CargoJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(cargo);
-					
+
 				} else if (jetType.equalsIgnoreCase("Fighter")) {
-					
+
 					Jet fighter = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(fighter);
-					
-				}else if (jetType.equalsIgnoreCase("Passenger")) {
+
+				} else if (jetType.equalsIgnoreCase("Passenger")) {
 					Jet passenger = new PassengerJet(jetModel, jetSpeed, jetRange, jetPrice, jetType);
 					jets.add(passenger);
+				}
+
 			}
-				
-			}	
 		} catch (IOException e) {
 			System.err.println(e);
 		}
 	}
+
 	public void listJets() {
 		for (int i = 0; i < jets.size(); i++) {
 			seperatorT();
-			System.out.println("|   "+jets.get(i)+ "   |");
+			System.out.println("|   " + jets.get(i) + "   |");
 			seperatorB();
 		}
 	}
-		
-		public void jetsFlying() {
-			for (int i = 0; i < jets.size(); i++) {
-				seperatorT();
-				int speed =  jets.get(i).getSpeed();
-				int range = jets.get(i).getRange();
-				int time = range/speed;
-				System.out.println("   \n~~~~NNYYYOOOOOOMMMMMM~~~\n");
-				plane();
-				System.out.println(jets.get(i).getModel()+" is flying! At " + speed + "MPH"+ " for the distance of "+ range +"miles, in "+time +" hours.\n"+"This plane costs $" + jets.get(i).getPrice());
-				seperatorB();
-				
+
+	public void jetsFlying() {
+		for (int i = 0; i < jets.size(); i++) {
+			seperatorT();
+			int speed = jets.get(i).getSpeed();
+			int range = jets.get(i).getRange();
+			int time = range / speed;
+			System.out.println("   \n~~~~NNYYYOOOOOOMMMMMM~~~\n");
+			plane();
+			System.out.println(jets.get(i).getModel() + " is flying! At " + speed + "MPH" + " for the distance of "
+					+ range + "miles, in " + time + " hours.\n" + "This plane costs $" + jets.get(i).getPrice());
+			seperatorB();
+
+		}
+	}
+
+	public void fastestJet() {
+		Jet zoomiestJet = null;
+		for (int i = 0; i < jets.size(); i++) {
+			if (zoomiestJet == null) {
+				zoomiestJet = jets.get(i);
+			} else if (jets.get(i).getSpeed() > zoomiestJet.getSpeed()) {
+				zoomiestJet = jets.get(i);
 			}
 		}
-		
-		public void fastestJet() {
-			Jet zoomiestJet = null;
-			for (int i = 0; i < jets.size(); i++) {
-				if (zoomiestJet == null) {
-					zoomiestJet = jets.get(i);
-				} else if (jets.get(i).getSpeed() > zoomiestJet.getSpeed()) {
-					zoomiestJet = jets.get(i);
-				}
+		System.out.println(zoomiestJet);
+	}
+
+	public void longestRange() {
+		Jet longestRan = null;
+		for (int i = 0; i < jets.size(); i++) {
+			if (longestRan == null) {
+				longestRan = jets.get(i);
+			} else if (jets.get(i).getRange() > longestRan.getRange()) {
+				longestRan = jets.get(i);
 			}
-			System.out.println(zoomiestJet);
 		}
-		
-		public void longestRange() {
-			Jet longestRan = null;
-			for (int i = 0; i < jets.size(); i++) {
-				if (longestRan == null) {
-					longestRan = jets.get(i);
-				} else if (jets.get(i).getRange() > longestRan.getRange()) {
-					longestRan = jets.get(i);
-				}
+		System.out.println(longestRan);
+
+	}
+
+	public void loadCargo() {
+		for (Jet jet : jets) {
+			if (jet instanceof CargoJet) {
+				Jet cargoJets = ((CargoJet) jet).loadingCargo();
+				System.out.println(cargoJets);
 			}
-			System.out.println(longestRan);
-			
 		}
-		
+	}
+
 	private void seperatorT() {
 		System.out.println("======================================================================");
 	}
+
 	private void seperatorB() {
 		System.out.println("======================================================================\n\n");
 	}
+
 	private void plane() {
-		System.out.println("	     ,-.\n"
-				         + "   _,.      /  /\n"
-				         + "  ; \\____,-==-._  \n"
-				         + "  //_    `----' {+>\n"
-				         + "  `  `'--/  /-'`\n"
-				         + "        /  /\n"
-				         + "        `='");
+		System.out.println("	     ,-.\n" + "   _,.      /  /\n" + "  ; \\____,-==-._  \n" + "  //_    `----' {+>\n"
+				+ "  `  `'--/  /-'`\n" + "        /  /\n" + "        `='");
 	}
-	}
+}

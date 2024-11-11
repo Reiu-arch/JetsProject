@@ -11,6 +11,9 @@ public class CargoJet extends Jet {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public Jet loadingCargo() {
+		System.out.println(getModel() + " has been loaded.");
+		return null;
+	}
 
 }

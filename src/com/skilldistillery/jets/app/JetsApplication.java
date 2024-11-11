@@ -43,7 +43,7 @@ public class JetsApplication {
 					airField.longestRange();
 					break;
 				case 5:
-					
+					airField.loadCargo();
 					break;
 				case 6:
 					
