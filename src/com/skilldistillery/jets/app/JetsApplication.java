@@ -50,6 +50,21 @@ public class JetsApplication {
 					
 					break;
 				case 7:
+					System.out.println("Please choose a jet to add! select 1 for Cargo Jet, 2 for Fighter Jet, and 3 for Passenger Jet: ");
+					String jT = sc.nextLine();
+					System.out.println("What model is your plane?");
+					String mod = sc.nextLine();
+					System.out.println("How fast does this go?");
+					int speed = (int)sc.nextInt();
+					sc.nextLine();
+					System.out.println("What range does this have?");
+					int range = (int)sc.nextInt();
+					sc.nextLine();
+					System.out.println("And how much does it cost?");
+					double cost = (double)sc.nextDouble();
+					sc.nextLine();
+					
+					airField.addNewJet(mod, speed, range, cost, jT);
 					
 					break;
 				case 8:
@@ -61,7 +76,7 @@ public class JetsApplication {
 					break;
 
 					default:
-						System.out.println("Please choose a valid input!!");
+						System.err.println("Please choose a valid input!!");
 						return;
 					
 				}
@@ -73,6 +88,7 @@ public class JetsApplication {
 		
 		}
 	}
+	
 
 	private void displayUserMenu() {
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n");

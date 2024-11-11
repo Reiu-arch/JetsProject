@@ -1,5 +1,5 @@
-Cargo,"C-130",400,2000,12000000.0
-Cargo,"Chinook",250,1500,30000000.0
-Passenger,"Boeing 767",350,3000,50000000.0
-Fighter,"F-22 Raptor",700,2000,70000000.0
-Fighter,"RC jet with C-4",97,35,50.0
+Cargo,C-130,400,2000,12000000.0
+Cargo,Chinook,250,1500,30000000.0
+Passenger,Boeing 767,350,3000,50000000.0
+Fighter,F-22 Raptor,700,2000,70000000.0
+Fighter,RC jet with C-4,97,35,50.0

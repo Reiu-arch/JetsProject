@@ -124,9 +124,33 @@ public class AirField {
 		}
 	}
 
-	public void addNewJet(String jetType, String model, int speed, int range, double price) {
-		Jet addJet = null;
-		switch (jetType) {
+	public void addNewJet(String model, int speed, int range, double price, String jetType) {
+		int jetT = Integer.parseInt(jetType);
+		switch (jetT) {
+		case 1:
+			jetType = "Cargo";
+			Jet addCargo = new CargoJet(model, speed, range, price, jetType);
+			jets.add(addCargo);
+			System.out.println("You have added a new Cargo Plane to the hanger!");
+			break;
+		case 2:
+			jetType = "Fighter";
+			Jet addFighter = new FighterJet(model, speed, range, price, jetType);
+			jets.add(addFighter);
+			System.out.println("You have added a new Figheter Plane to the hanger!");
+
+			break;
+		case 3:
+			jetType = "Passenger";
+			Jet addPass = new PassengerJet(model, speed, range, price, jetType);
+			jets.add(addPass);
+			System.out.println("You have added a new Passenger Plane to the hanger!");
+			
+			break;
+		default:
+			System.err.println("Please choose a valid input.");
+			return;
+
 		}
 	}
 
