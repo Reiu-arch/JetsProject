@@ -88,6 +88,19 @@ public class AirField {
 			System.out.println(zoomiestJet);
 		}
 		
+		public void longestRange() {
+			Jet longestRan = null;
+			for (int i = 0; i < jets.size(); i++) {
+				if (longestRan == null) {
+					longestRan = jets.get(i);
+				} else if (jets.get(i).getRange() > longestRan.getRange()) {
+					longestRan = jets.get(i);
+				}
+			}
+			System.out.println(longestRan);
+			
+		}
+		
 	private void seperatorT() {
 		System.out.println("======================================================================");
 	}

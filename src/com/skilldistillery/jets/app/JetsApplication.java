@@ -39,7 +39,8 @@ public class JetsApplication {
 					airField.fastestJet();
 					break;
 				case 4:
-					
+					System.out.println("Lets see which plane travels the furthest!!!");
+					airField.longestRange();
 					break;
 				case 5:
 					
